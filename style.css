@@ -1,0 +1,54 @@
+/* font-family: 'DM Sans', sans-serif;
+font-family: 'DM Serif Display', serif;font-family: 'DM Sans', sans-serif;
+font-family: 'DM Serif Display', serif; */
+@font-face {
+    font-family: fontSerif;
+    src: url(./media/title.ttf);
+    font-family: fontSans;
+    src: url(./media/text.ttf);
+    font-family: Krifon;
+    src: url(./media/Krifon\ Regular.otf);
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: krifon;
+}
+
+/* SETTING GENERALI */
+:root{
+    --primaryCustom: var(rgb(217, 212, 210));
+    --secondaryCustom: var(rgb(33, 32, 38));
+    --accent: var(rgb(166, 133, 104));
+    --greyCustom: var(rgb(217, 192, 119));
+}
+/* COLORI TESTI CUSTOM */
+.text-primaryCustom{
+    color: var(--primaryCustom);
+}
+.text-secondaryCustom{
+    color: var(--secondaryCustom);
+}
+.text-accent{
+    color: var(--accent);
+}
+.text-greyCustom{
+    color: var(--greyCustom);
+}
+/* BG CUSTOM */
+bg-primaryCustom{
+    background-color: var(--primaryCustom);
+}
+bg-secondaryCustom{
+    background-color: var(--secondaryCustom);
+}
+bg-accent{
+    background-color: var(--accent);
+}
+bg-greyCustom{
+    background-color: var(--greyCustom);
+}
+/* HEADER */
+.headerCustom{
+    background-image: url(./media/Presto.it\ \(1\).png);
+    background-size: cover;
+}
+
