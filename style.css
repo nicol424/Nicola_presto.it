@@ -1,30 +1,24 @@
-/* font-family: 'DM Sans', sans-serif;
-font-family: 'DM Serif Display', serif;font-family: 'DM Sans', sans-serif;
-font-family: 'DM Serif Display', serif; */
+
 @font-face {
-    font-family: fontSerif;
-    src: url(./media/title.ttf);
-    font-family: fontSans;
-    src: url(./media/text.ttf);
-    font-family: Krifon;
-    src: url(./media/Krifon\ Regular.otf);
+    font-family: fontMain;
+    src: url(./media/Krifon\ Regular\ \(1\).otf);
 }
 h1, h2, h3, h4, h5, h6{
-    font-family: krifon;
+    font-family: fontMain;
 }
 
 /* SETTING GENERALI */
 :root{
-    --primaryCustom: var(rgb(217, 212, 210));
-    --secondaryCustom: var(rgb(33, 32, 38));
-    --accent: var(rgb(166, 133, 104));
-    --greyCustom: var(rgb(217, 192, 119));
+    --primaryCustom:rgb(217, 212, 210);
+    --blackCustom: rgb(33, 32, 38);
+    --accent: rgb(112, 78, 57);
+    --greyCustom: rgb(177, 175, 175);
 }
 /* COLORI TESTI CUSTOM */
 .text-primaryCustom{
     color: var(--primaryCustom);
 }
-.text-secondaryCustom{
+.text-blackCustom{
     color: var(--secondaryCustom);
 }
 .text-accent{
@@ -37,7 +31,7 @@ h1, h2, h3, h4, h5, h6{
 bg-primaryCustom{
     background-color: var(--primaryCustom);
 }
-bg-secondaryCustom{
+bg-Custom{
     background-color: var(--secondaryCustom);
 }
 bg-accent{
@@ -46,9 +40,39 @@ bg-accent{
 bg-greyCustom{
     background-color: var(--greyCustom);
 }
-/* HEADER */
-.headerCustom{
-    background-image: url(./media/Presto.it\ \(1\).png);
-    background-size: cover;
+/* BORDER CUSTOM */
+.border-primary{
+    border: 2px solid var(--primaryCustom)
+}
+.border-blackCustom{
+    border: 2px solid var(--blackCustom)
+}
+.border-accent{
+    border: 2px solid var(--accent)
+}
+.border-greyCustom{
+    border: 2px solid var(--greyCustom)
+}
+/* INIZIO NAVBAR */
+.logoNav{
+    width: 70px;
+}
+.navbarCustom{
+    background-color: var(--accent) !important;
 }
 
+/* FINE NAVBAR */
+/* HEADER */
+.headerCustom{
+    background-image: url(./media/header.png);
+    background-size: cover;
+    background-position: center;
+}
+.title{
+    font-size: 150px;
+    background-image: url(./media/sfondoh1.gif);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(10px 10px 4px var(--blackCustom));
+}
