@@ -89,3 +89,23 @@ bg-greyCustom{
 }
 
 /* SEZIONE FINE AOS */
+/* SEZIONE SWIPER */
+.swiper{
+    width: 600px;
+    height: 300px;
+}
+/* FINE SEZIONE SWIPER */
+/* SWIPER */
+.cardRec{
+    height: 200px;
+    width: 300px;
+    border: 2px solid var(--accent);
+    border-radius: 20px;
+
+    background-color: var(--primaryCustom);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* FINE SWIPER */
