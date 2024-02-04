@@ -108,3 +108,40 @@ let observer = new IntersectionObserver(
     }
 )
 observer.observe(h2Obs);
+
+// SEZIONE MOUSE ENTER
+let trucks = document.querySelectorAll('.fa-truck');
+
+let columns = document.querySelectorAll('.colCustom');
+
+columns.forEach((colonna, i)=>{
+    // VARIABILE D'APPOGGIO
+    let columnConfirm = false;
+
+    colonna.addEventListener('mouseenter', ()=>{
+
+        if (columnConfirm == false){
+            trucks[i].classList.remove('text-accent');
+            trucks[i].classList.add('text-blackCustom');
+        } else {
+            trucks[i].classList.remove('text-accent');
+            trucks[i].classList.add('text-blackCustom');
+            
+        }
+        
+    }); 
+
+    colonna.addEventListener('mouseleave', ()=>{
+        if (columnConfirm == false) {
+            trucks[i].classList.remove('text-blackCustom');
+            trucks[i].classList.add('text-accent');
+            columnConfirm = true;
+        } else {
+            trucks[i].classList.add('text-accent');
+            trucks[i].classList.remove('text-blackCustom');
+            columnConfirm = false;
+        }
+        
+
+    });
+});

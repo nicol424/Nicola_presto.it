@@ -74,6 +74,7 @@ bg-greyCustom{
     background-image: url(./media/header.png);
     background-size: cover;
     background-position: center;
+    min-width: 100vw;
 }
 .title{
     font-size: 150px;
@@ -86,12 +87,13 @@ bg-greyCustom{
 /* SEZIONE AOS */
 .clothes{
     filter: drop-shadow(15px 10px 6px black);
+    width: 100%;
 }
 
 /* SEZIONE FINE AOS */
 /* SEZIONE SWIPER */
 .swiper{
-    width: 600px;
+    /* width: 600px; */
     height: 300px;
 }
 /* FINE SEZIONE SWIPER */
@@ -109,3 +111,33 @@ bg-greyCustom{
     justify-content: center;
 }
 /* FINE SWIPER */
+/* SEZIONE MOUSE ENTER */
+.colCustom{
+    border: 3px solid var(--accent);
+    color: var(--blackCustom);
+    padding: 20px;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+.colCustom:hover{
+    border: 3px solid var(--accent);
+    color: var(--blackCustom);
+    padding: 20px;
+    border-radius: 20px;
+    scale: 1.2;
+}
+.h-custom{
+    min-height: 300px;
+    background-color: var(--primaryCustom);
+}
+
+/* FINE SEZIONE MOUSE ENTER */
+/* FOOTER */
+#logoFooter{
+    width: 70px;
+}
+
+.footer{
+    background-color: var(--primaryCustom);
+}
+/*FINE FOOTER */
