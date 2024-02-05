@@ -76,7 +76,7 @@ function createInterval(finalNumber, NumberSpan){
         
         
         // Voglio che il counter si fermi a 100
-        if (counter > finalNumber){
+        if (counter < finalNumber){
 
             counter++
             NumberSpan.innerHTML = counter;
@@ -87,6 +87,8 @@ function createInterval(finalNumber, NumberSpan){
     }, 1);
 }
 
+
+
 // INTERSECTION OBSERVER
 // Oggetto precostruito di JavaScript
 
@@ -96,6 +98,7 @@ let intersectionConfirm = true;
 let observer = new IntersectionObserver(
 
     (entries)=>{
+        
         entries.forEach((entry)=>{
             if (entry.isIntersecting) {
                 createInterval(1000, firstSpan);
@@ -107,7 +110,7 @@ let observer = new IntersectionObserver(
         });
     }
 )
-observer.observe(h2Obs);
+observer.observe(firstSpan);
 
 // SEZIONE MOUSE ENTER
 let trucks = document.querySelectorAll('.fa-truck');
