@@ -62,6 +62,40 @@ window.addEventListener('scroll' ,()=>{
 
 fetch('./annunci.json').then((response)=> response.json()).then((data)=>{
 
-    console.log(data);
+    let categoryWrapper = document.querySelector('#categoryWrapper');
+// MAPPO PER AVERE UN ARRAY CLONE PER LE CATEGORIE
+    function setCategoriesFilter() {
+        let categories = data.map((annuncio)=> annuncio.category);
+    // VOGLIO LE CATEGORIE CHE NON SI RIPETONO
+    let uniqueCategories = [];
 
+    categories.forEach((category)=>{
+        
+        if (!uniqueCategories.includes(category)) {
+            uniqueCategories.push(category);
+        }
+    })
+    // console.log(uniqueCategories);
+    // PARTENDO DA UNIQUE MI CREO I RADIO BUTTON IN DINAMICA
+    uniqueCategories.forEach((category)=>{
+
+        let div = document.createElement('div');
+
+        div.classList.add('form-check');
+
+        div.innerHTML=`
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="${category}">
+            <label class="form-check-label"  for="${category}">
+            ${category}
+        </label>
+        `;
+        categoryWrapper.appendChild(div);
+
+    })
+}
+    
+    setCategoriesFilter();    
+    
+    
 })
+// FINE FETCH
