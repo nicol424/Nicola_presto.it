@@ -9,14 +9,14 @@ h1, h2, h3, h4, h5, h6{
 
 /* SETTING GENERALI */
 :root{
-    --primaryCustom:rgb(217, 212, 210);
+    --PrimaryCustom: rgb(217, 212, 210);
     --blackCustom: rgb(33, 32, 38);
     --accent: rgb(112, 78, 57);
     --greyCustom: rgb(177, 175, 175);
 }
 /* COLORI TESTI CUSTOM */
-.text-primaryCustom{
-    color: var(--primaryCustom);
+.text-PrimaryCustom{
+    color: var(--PrimaryCustom);
 }
 .text-blackCustom{
     color: var(--blackCustom);
@@ -28,8 +28,8 @@ h1, h2, h3, h4, h5, h6{
     color: var(--greyCustom);
 }
 /* BG CUSTOM */
-bg-primaryCustom{
-    background-color: var(--primaryCustom);
+bg-PrimaryCustom{
+    background-color: var(--PrimaryCustom);
 }
 bg-Custom{
     background-color: var(--secondaryCustom);
@@ -41,8 +41,8 @@ bg-greyCustom{
     background-color: var(--greyCustom);
 }
 /* BORDER CUSTOM */
-.border-primary{
-    border: 2px solid var(--primaryCustom)
+.border-Primary{
+    border: 2px solid var(--PrimaryCustom)
 }
 .border-blackCustom{
     border: 2px solid var(--blackCustom)
@@ -104,7 +104,7 @@ bg-greyCustom{
     border: 2px solid var(--accent);
     border-radius: 20px;
 
-    background-color: var(--primaryCustom);
+    background-color: var(--PrimaryCustom);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,7 +128,7 @@ bg-greyCustom{
 }
 .h-custom{
     min-height: 300px;
-    background-color: var(--primaryCustom);
+    background-color: var(--PrimaryCustom);
 }
 
 /* FINE SEZIONE MOUSE ENTER */
@@ -138,6 +138,31 @@ bg-greyCustom{
 }
 
 .footer{
-    background-color: var(--primaryCustom);
+    background-color: var(--PrimaryCustom);
 }
 /*FINE FOOTER */
+/* ANNUNCI */
+/* FINE ANNUNCI */
+
+.announcement-card{
+    min-height: 300px;
+    width: 100%;
+    border: 2px solid var(--accent);
+    background-color: var(--PrimaryCustom);
+    border-radius: 20px;
+    margin: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.card-head{
+    min-height: 50px;
+    text-align: center;
+
+}
+.imgCard{
+    height: 150px;
+    border-radius: 50%;
+}

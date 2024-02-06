@@ -10,6 +10,8 @@ let beigeLogo = document.querySelector('#beigeLogo');
 
 // CATTURA LINK NAVBAR
 let navLinks = document.querySelectorAll('.nav-link');
+// CATTURA PAPA' DELLLE CARDS
+let cardsWrapper = document.querySelector('#cardsWrapper');
 
 // VARIABILE D'APPOGGIO PER L'ICONA NAVBAR
 
@@ -64,8 +66,10 @@ fetch('./annunci.json').then((response)=> response.json()).then((data)=>{
 
     let categoryWrapper = document.querySelector('#categoryWrapper');
 // MAPPO PER AVERE UN ARRAY CLONE PER LE CATEGORIE
-    function setCategoriesFilter() {
+    function setCategoriesFilter(){
+
         let categories = data.map((annuncio)=> annuncio.category);
+
     // VOGLIO LE CATEGORIE CHE NON SI RIPETONO
     let uniqueCategories = [];
 
@@ -96,6 +100,109 @@ fetch('./annunci.json').then((response)=> response.json()).then((data)=>{
     
     setCategoriesFilter();    
     
+    // FUNZIONE MOSTRA CARDS
+    function showCards(array){
+        cardsWrapper.innerHTML = ``;
+
+        array.forEach((annuncio, i)=>{
+
+            let div = document.createElement('div');
+
+            div.classList.add("col-12" ,"col-lg-3" ,"d-flex", "justify-content-center");
+
+            div.innerHTML = `
+
+                <div class="col-12", "col-lg-3", "d-flex", "justify-content-center">
+
+                <div class="announcement-card">
+                
+                <div className="card-head">
+                    <img src="https://picsum.photos/${200 + i}" alt="imgCustom" class="imgCard">
+                </div>
+                
+                    <p class="h3">${annuncio.name}</p>
+                    <p class="h3">${annuncio.category}</p>
+                    <p class="h3">${annuncio.price} €</p>
+                </div>
+                </div>
+            `;
+            cardsWrapper.appendChild(div);
+        })
+    }
+    showCards(data);
+
+    // EVENTO CATEGORIA
+    function filterByCategory(categoria){
+        if (categoria != 'All') {
+            
+            let filtered = data.filter((annuncio)=>annuncio.category == categoria);
+
+            showCards(filtered);
+
+        } else {
+            showCards(data);
+        }
+        
+    }
+
+;
+
+// CATTURA RADIO BUTTON
+let checkInputs = document.querySelectorAll('.form-check-input');
+
+checkInputs.forEach((checkInput)=>{
+
+    checkInput.addEventListener('click', ()=>{
+
+        filterByCategory(checkInput.id);
+    });
+
+});
+// cattura input range
+let priceInput = document.querySelector('#priceInput');
+
+let incrementNumber = document.querySelector('#incrementNumber');
+
+function setPriceInput(){
     
+    let prices = data.map((annuncio)=> Number(annuncio.price));
+
+    // console.log(prices);
+    // RECUPERO IL PREZZO MAGGIORE
+    let maxPrice = Math.ceil(Math.max(...prices));
+    // console.log(maxPrice);
+
+    priceInput.max = maxPrice;
+
+    priceInput.value = maxPrice;
+
+    incrementNumber.innerHTML = maxPrice;
+}
+
+setPriceInput();
+
+function filterByPrice(prezzo){
+    
+    // VOGLIO UN ARRAY CON SOLO I PRODOTTI CON PREZZI INFERIORI
+
+    let filtered = data.filter((annuncio)=> Number(annuncio.price <= prezzo));
+
+    showCards(filtered);
+}
+
+priceInput.addEventListener('input', ()=>{
+
+    filterByPrice(Number(priceInput.value));
+
+    incrementNumber.innerHTML = priceInput.value;
+
+});
+
+filterByPrice(500);
+
+
 })
+
 // FINE FETCH
+
+

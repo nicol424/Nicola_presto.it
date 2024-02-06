@@ -99,7 +99,11 @@
                             </h2>
                             <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
-                                    
+                                    <input type="range" class="w-100" id="priceInput">
+                                </div>
+                                <div>
+                                    <span class="inputNumber fs-3 text-accent fw-bold" id="incrementNumber">0</span>
+                                    <span class="fs-3 fw-bold text-accent">€</span>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +126,9 @@
                 </div>
                 
                 <div class="col-12 col-lg-9">
-                    card annunci
+                    <div class="row" id="cardsWrapper">
+                        <!-- CARDS ANNUNCI -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -187,3 +193,5 @@
     <script src="./annunci.js"></script>
 </body>
 </html>
+
+

@@ -101,9 +101,9 @@ let observer = new IntersectionObserver(
         
         entries.forEach((entry)=>{
             if (entry.isIntersecting) {
-                createInterval(1000, firstSpan);
-                createInterval(1500, secondSpan);
-                createInterval(2000, thirdSpan);
+                createInterval(220, firstSpan);
+                createInterval(224, secondSpan);
+                createInterval(156, thirdSpan);
 
                 intersectionConfirm = false;
             }
