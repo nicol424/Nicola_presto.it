@@ -102,7 +102,11 @@ fetch('./annunci.json').then((response)=> response.json()).then((data)=>{
     
     // FUNZIONE MOSTRA CARDS
     function showCards(array){
+
         cardsWrapper.innerHTML = ``;
+        // sortare le cards in ordine decrescente
+
+        array.sort((a,b)=> Number(b.price - a.price));
 
         array.forEach((annuncio, i)=>{
 
@@ -197,6 +201,21 @@ priceInput.addEventListener('input', ()=>{
     incrementNumber.innerHTML = priceInput.value;
 
 });
+
+let wordInput = document.querySelector('#wordInput');
+
+function filterByWord(nome) {
+    
+    let filtered = data.filter((annuncio)=>annuncio.name.toLowerCase().includes(nome.loLowerCase()));
+
+    showCards(filtered);
+    wordInput.addEventListener('input', ()=>{
+
+        filterByWord(wordInput.value);
+    });
+
+}
+
 
 filterByPrice(500);
 
