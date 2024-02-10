@@ -166,3 +166,41 @@ bg-greyCustom{
     height: 150px;
     border-radius: 50%;
 }
+/* CHI SIAMO */
+.circle{
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    border: 5px dotted var(--accent);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+.opener{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px;
+}
+.moved{
+    height: 80px;
+    width: 80px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    /* transform: translate(200px); */
+    transition: 1s;
+}
+/* FINE CHI SIAMO */

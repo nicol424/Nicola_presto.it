@@ -135,16 +135,27 @@ fetch('./annunci.json').then((response)=> response.json()).then((data)=>{
     }
     showCards(data);
 
+
+
     // EVENTO CATEGORIA
-    function filterByCategory(categoria){
+    function filterByCategory(array){
+        // calcolo reale di categoria
+        let trasformazione = Array.from(checkInputs);
+
+        let cercaBottone = trasformazione.find((radioButton)=> radioButton.checked)
+
+
+        let categoria = cercaBottone.id;
+
         if (categoria != 'All') {
             
-            let filtered = data.filter((annuncio)=>annuncio.category == categoria);
+            let filtered = array.filter((annuncio)=>annuncio.category == categoria);
 
-            showCards(filtered);
+            
+            return filtered;
 
         } else {
-            showCards(data);
+            return data;
         }
         
     }
@@ -158,10 +169,11 @@ checkInputs.forEach((checkInput)=>{
 
     checkInput.addEventListener('click', ()=>{
 
-        filterByCategory(checkInput.id);
+        // filterByCategory(checkInput.id);
+        globalFilter();
     });
 
-});
+})
 // cattura input range
 let priceInput = document.querySelector('#priceInput');
 
@@ -185,41 +197,63 @@ function setPriceInput(){
 
 setPriceInput();
 
-function filterByPrice(prezzo){
+function filterByPrice(array){
+    // trovo il prezzo con priceInput.value
+    let prezzo = Number(priceInput.value);
     
     // VOGLIO UN ARRAY CON SOLO I PRODOTTI CON PREZZI INFERIORI
 
-    let filtered = data.filter((annuncio)=> Number(annuncio.price <= prezzo));
+    let filtered = array.filter((annuncio)=> Number(annuncio.price <= prezzo));
 
-    showCards(filtered);
+    return filtered;
 }
 
 priceInput.addEventListener('input', ()=>{
-
-    filterByPrice(Number(priceInput.value));
-
+    
     incrementNumber.innerHTML = priceInput.value;
+    
+    globalFilter();
+    // filterByPrice(Number(priceInput.value));
+    
+    filterByPrice(500);
 
 });
 
+
+
 let wordInput = document.querySelector('#wordInput');
 
-function filterByWord(nome) {
+function filterByWord(array){
+
+    let nome = wordInput.value;
     
-    let filtered = data.filter((annuncio)=>annuncio.name.toLowerCase().includes(nome.loLowerCase()));
+    let filtered = array.filter((annuncio)=>annuncio.name.toLowerCase().includes(nome.toLowerCase()));
 
-    showCards(filtered);
-    wordInput.addEventListener('input', ()=>{
+    return filtered;
 
-        filterByWord(wordInput.value);
-    });
+    
 
 }
 
+// filtri uniti
 
-filterByPrice(500);
+wordInput.addEventListener('input', ()=>{
 
+    // filterByWord(wordInput.value);
+    globalFilter();
+});
 
+function globalFilter() {
+
+    let filteredByCategory = filterByCategory(data);
+
+    let filteredByPrice = filterByPrice(filteredByCategory);
+
+    let filteredByWord = filterByWord(filteredByPrice);
+
+    showCards(filteredByWord); 
+
+}
 })
 
 // FINE FETCH
