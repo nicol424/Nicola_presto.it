@@ -64,12 +64,42 @@ window.addEventListener('scroll' ,()=>{
 let opener = document.querySelector('.opener');
 
 let movedDivs = document.querySelectorAll('.moved');
+// VARIABILE D'APPOGGIO
+let conferma = false;
+
+let teachers = [
+    {nome : 'Valerio', url : './media/valerio.png'},
+    {nome : 'Carlo', url : './media/carlo.png'},
+    {nome : 'Mattia', url : './media/mattia.png'},
+    {nome : 'Donato', url : './media/donato.png'},
+];
+// evento click
+movedDivs.forEach((moved, i)=>{
+    
+    moved.style.backgroundImage = `url('${teachers[i].url}')`;
+});
 
 opener.addEventListener('click', ()=> {
+    if (conferma == false){
 
-    movedDivs.forEach((moved, i)=>{
+        conferma = true;
+        opener.style.transform = `rotate(360deg)`;
 
-        let angle = (360 * i) / movedDivs.length;
-        moved.style.transform = `rotate(${angle}deg) translate(200px)`;
-    })
+        movedDivs.forEach((moved, i)=>{
+
+            let angle = (360 * i) / movedDivs.length;
+            moved.style.transform = `rotate(${angle}deg) translate(200px) rotate(-${angle}deg) scale(1.2)`;
+        })
+    } else {
+        movedDivs.forEach((moved, i)=>{
+            opener.style.transform = `rotate(0deg)`;
+
+            // let angle = (360 * i) / movedDivs.length;
+            moved.style.transform = `rotate(0deg) translate(0px)`;
+
+            conferma = false;
+        })
+
+    }
+    
 });

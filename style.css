@@ -193,6 +193,7 @@ bg-greyCustom{
     background-color: white;
     cursor: pointer;
     box-shadow: 5px 5px 10px;
+    transition: 1s;
 }
 .moved{
     height: 80px;
@@ -202,5 +203,9 @@ bg-greyCustom{
     position: absolute;
     /* transform: translate(200px); */
     transition: 1s;
+    background-image: url(./media/donato.png);
+    background-position: center;
+    background-size: cover;
+    background-color: var(--accent);
 }
 /* FINE CHI SIAMO */
